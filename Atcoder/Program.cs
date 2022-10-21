@@ -5,11 +5,12 @@ class Program
 {
     static void Main(string[] args)
     {
-        int[] c = Console.ReadLine().Split(' ').Select(int.Parse).ToArray();
-        int output1 = c[0] | c[1];
-        int output2 = c[0] & c[1];
-        Console.WriteLine(output1);
-        Console.WriteLine(output2);
+        //A と 2 iの論理積(AND) を求めるプログラムを作成してください。
 
+        int[] c = Console.ReadLine().Split(' ').Select(int.Parse).ToArray();
+        
+        int output = c[0] & 1 << c[1];
+
+        Console.WriteLine(output);
     }
 }
