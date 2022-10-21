@@ -1,16 +1,31 @@
 ﻿// See https://aka.ms/new-console-template for more information
 using System;
 using System.Linq;
-class Program
-{
-    static void Main(string[] args)
+
+int[] c = Console.ReadLine().Split(" ").Select(int.Parse).ToArray();
+int times = int.Parse(Console.ReadLine());
+string[] result = new string[times];
+for( int a =0; a < times; a++)
+{    int[] b = Console.ReadLine().Split(" ").Select(int.Parse).ToArray();
+    if (b[0] == 0)
     {
-        //A と 2 iの論理積(AND) を求めるプログラムを作成してください。
-
-        int[] c = Console.ReadLine().Split(' ').Select(int.Parse).ToArray();
-        
-        int output = c[0] & 1 << c[1];
-
-        Console.WriteLine(output);
+        c[1] = c[1] | (1 << b[1]);
     }
+    else
+    {
+        int check = c[1] & (1 << b[1]);
+        if (check == 1)
+        {
+            result[a] = "on";
+        }else if(check == 0)
+        {
+            result[a] = "off";
+        }
+           
+    }
+}
+
+foreach ( string a in result)
+{
+    Console.WriteLine(a);
 }
