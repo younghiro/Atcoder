@@ -233,40 +233,70 @@ using System.Collections.Generic;
 //    }
 //}
 
-//int times = int.Parse(Console.ReadLine());
-int a = int.Parse(Console.ReadLine());
-int[] inputs = Console.ReadLine().Split(" ").Select(int.Parse).ToArray();
+////int times = int.Parse(Console.ReadLine());
+//int a = int.Parse(Console.ReadLine());
+//int[] inputs = Console.ReadLine().Split(" ").Select(int.Parse).ToArray();
 
-int[,] array = new int[a, a];
-for( int s=0; s < a; s++)
-{
-    array[0, s] = inputs[s];
-}
-
-//for (int s = 0; s < a; s++)
+//int[,] array = new int[a, a];
+//for( int s=0; s < a; s++)
 //{
-//    for(int t = 0; t < a; t++)
-//    {
-//        Console.Write(array[s, t]+" ");
-//    }
-//    Console.WriteLine(" ");
+//    array[0, s] = inputs[s];
 //}
 
-for (int s = 1; s < a; s++)
+////for (int s = 0; s < a; s++)
+////{
+////    for(int t = 0; t < a; t++)
+////    {
+////        Console.Write(array[s, t]+" ");
+////    }
+////    Console.WriteLine(" ");
+////}
+
+//for (int s = 1; s < a; s++)
+//{
+//    for (int t = 0; t < a; t++)
+//    {
+//        int one = 0;
+//        one += array[s - 1, t];
+//        if (t - 1 >= 0)
+//        {
+//        one += array[s - 1, t-1];
+//        }
+//        if(t+1<= a - 1)
+//        {
+//        one += array[s - 1, t+1];
+//        }
+//        array[s, t] = one%100;
+//    }
+//}
+//Console.WriteLine(array[a-1, a-1]);
+
+int a = int.Parse(Console.ReadLine());
+int[, ] work = new int[a,3];
+for(int i =0; i < a-1; i++)
 {
-    for (int t = 0; t < a; t++)
+    int[] inputs = Console.ReadLine().Split(" ").Select(int.Parse).ToArray();
+    work[i, 0] = inputs[0];
+    work[i, 1] = inputs[1];
+    work[i, 2] = inputs[2];
+}
+for (int i = 0; i < a - 1; i++)//行
+{
+    for(int j=1; j<3; j++)//列
     {
-        int one = 0;
-        one += array[s - 1, t];
-        if (t - 1 >= 0)
-        {
-        one += array[s - 1, t-1];
+        if (i==0){
+            int f = Math.Max(work[0,0], work[0,1]);
+            work[i, j] = Math.Max(work[0, 2], f);
         }
-        if(t+1<= a - 1)
-        {
-        one += array[s - 1, t+1];
-        }
-        array[s, t] = one%100;
+        work[i,0] = Math.Max(work[i - 1,1], work[i - 1,2]) ;
+        work[i,1] = Math.Max(work[i - 1,0], work[i - 1,2]) ;
+        work[i,2] = Math.Max(work[i - 1,0], work[i - 1,1]);
+    }
+
+    if (i == a)
+    {
+        int k = Math.Max(work[i, 0], work[i, 1]);
+        Console.WriteLine(Math.Max(work[i, 2], k));
     }
 }
-Console.WriteLine(array[a-1, a-1]);
+
