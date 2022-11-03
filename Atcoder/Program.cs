@@ -3,170 +3,165 @@ using System;
 using System.Linq;
 using System.Collections.Generic;
 
+//int[] inputs = Console.ReadLine().Split(" ").Select(int.Parse).ToArray();
+//int n = inputs[0];
+//int m = inputs[1];
+//bool[,] dp = new bool[n, m];
+//dp[0, 0] = true; 
+////Console.WriteLine(dp[0, 0]);
 
+//int[] a = Console.ReadLine().Split(" ").Select(int.Parse).ToArray();
 
-//int a = int.Parse(Console.ReadLine());
-//int[, ] work = new int[a,3];
-//for(int i =0; i < a-1; i++)
+//for( int i = 0; i < n-1; i++)
 //{
-//    int[] inputs = Console.ReadLine().Split(" ").Select(int.Parse).ToArray();
-//    work[i, 0] = inputs[0];
-//    work[i, 1] = inputs[1];
-//    work[i, 2] = inputs[2];
-//}
-//for (int i = 0; i < a - 1; i++)//行
-//{
-//    for(int j=1; j<3; j++)//列
+//    for (int t = 0; t < m; t++)
 //    {
-//        if (i==0){
-//            int f = Math.Max(work[0,0], work[0,1]);
-//            work[i, ] = Math.Max(work[0, 2], f);
-//        }
-//        work[i,0] = Math.Max(work[i - 1,1], work[i - 1,2]) ;
-//        work[i,1] = Math.Max(work[i - 1,0], work[i - 1,2]) ;
-//        work[i,2] = Math.Max(work[i - 1,0], work[i - 1,1]);
-//    }
-
-//    if (i == a)
-//    {
-//        int k = Math.Max(work[i, 0], work[i, 1]);
-//        Console.WriteLine(Math.Max(work[i, 2], k));
-//    }
-//}
-
-//int a = int.Parse(Console.ReadLine());
-//int[,] dp = new int[a, a];
-//dp[0, 0] = 1;
-
-//for (int s = 0; s < a; a++)
-//{
-//    for (int t = 0; t < a; t++)
-//    {
-//        if( s -1 >= 0)
+//        if (!dp[i, t]) continue;
+//        dp[i+1, t] = true;
+//        if( t + a[i] < m)
 //        {
-//            dp[s, t] += dp[s-1, t];
+//            dp[i + 1, t + a[i]] = true;
 //        }
-//        if ( t-1 >= 0)
+//    }
+//}
+
+//int[] nm = Console.ReadLine().Split(" ").Select(int.Parse).ToArray();
+//int[] w = Console.ReadLine().Split(" ").Select(int.Parse).ToArray();
+//int n = nm[0];
+//int m = nm[1];
+
+//bool[,] dp = new bool[n+1, m+1];
+//dp[0, 0] = true;
+
+//for( int i = 0; i < n; i++)
+//{
+//    for( int j = 0; j <= m; j++)
+//    {
+//        if (!dp[i, j]) continue;
+//        dp[i + 1, j] = true;
+//        if( j + w[i] <= m)
 //        {
-//            dp[s, t] += dp[s, t - 1];
+//            dp[i+1, j+w[i]] = true;
 //        }
 //    }
 //}
-//Console.WriteLine(dp[a-1,a-1]);
 
-//using System;
-
-//int a = int.Parse(Console.ReadLine());
-//int[,] inputs = new int[a, a];
-//var line = new string[a];
-//for (int s = 0; s < a; a++)
-//{
-//    line[s] = Console.ReadLine();
-//    for (int t = 0; t < a; t++)
-//    {
-//        Console.Write(line[t]);
-//        Console.WriteLine(" ");
-//    }
-//}
-//for (int s = 0; s < a; a++)
-//{
-//    for (int t = 0; t < a; t++)
-//    {
-//        Console.Write(inputs[s, t]);
-//        Console.WriteLine(" ");
-//    }
-//}
-
-//int n = int.Parse(Console.ReadLine());
-//var s = new string[n];
-//for (int i = 0; i < n; i++)
-//{
-//    s[i] = Console.ReadLine();
-//}
-////for (int i = 0; i < n; i++)
+////for (int i = 0; i < n; n++)
 ////{
-////    for (int j = 0; j < n; j++)
+////    for (int j = 0; j < m; j++)
 ////    {
-////        Console.Write(s[i][j]);
+////        Console.Write("{0} ",dp[i, j] );
+////        Console.WriteLine(" ");
 ////    }
-////    Console.WriteLine(" ");
 ////}
 
-//var a = new int[n, n];
-//a[0, 0] = 1;
-//for (int i = 0; i < n; i++)
+//if (dp[n, m] == true)
 //{
-//    for (int j = 0; j < n; j++)
-//    {
-//        if (j < n - 1 && s[i][j + 1] == '.') a[i, j + 1] += a[i, j];
-//        if (i < n - 1 && s[i + 1][j] == '.') a[i + 1, j] += a[i, j];
-//    }
+//    Console.WriteLine("Yes");
 //}
-//Console.WriteLine(a[n - 1, n - 1]);
-
-//int n = int.Parse(Console.ReadLine());
-//int[,] input = new int[n, n];
-//for( int s = 0; s < n; s++)
+//else
 //{
-//    int[] a = Console.ReadLine().Split(" ").Select(int.Parse).ToArray();
-//    for (int t = 0; t < n; t++)
-//    {
-//        input[s, t] = a[t];
-//    }
+//    Console.WriteLine("No");
 //}
 
-//for (int i = 0; i < n; i++)
+//int[] nm = Console.ReadLine().Split(" ").Select(int.Parse).ToArray();
+//int[] A = Console.ReadLine().Split(" ").Select(int.Parse).ToArray();
+//int[] B = Console.ReadLine().Split(" ").Select(int.Parse).ToArray();
+//int n = nm[0];
+//int m = nm[0];
+//int[,] dp = new int[n+1,m+1];
+//for (int o = 0; o < dp.GetLength(0); o++)
 //{
-//    for (int j = 0; j < n; j++)
+//    for (int p = 0; p < dp.GetLength(1); p++)
 //    {
-//        if(i == 0　& j == 0)
+//        dp[o,p ] = -1;
+//    }
+//}
+//for (int o = 0; o < dp.GetLength(0); o++)
+//{
+//    for (int p = 0; p < dp.GetLength(1); p++)
+//    {
+//        Console.Write("{0} ", dp[o, p]);
+//    }
+//    Console.WriteLine(" ");
+//}
+//dp[0, 0] = 0;
+//for ( int i=0; i < n; i++)
+//{
+//    for(int t = 0; t < m; t++)
+//    {
+//        if (!dp[i, j])
 //        {
-//            input[i, j] = input[0, 0];
+
 //        }
-//        else if (i ==0)
-//        {
-//            input[ i , j ] += input[i, j -1];
-//        }else if (j ==0)
-//        {
-//            input[ i, j ] += input[i-1, j];
-//        }
-//        else
-//        {
-//        input[i, j] += Math.Max(input[i, j - 1], input[i - 1, j]);
-//        }    
 //    }
 //}
 
-//Console.WriteLine(input[n-1, n-1]);
+//int[] NM = Console.ReadLine().Split(" ").Select(int.Parse).ToArray();
+//int[] A = Console.ReadLine().Split(" ").Select(int.Parse).ToArray();
+//int[] B = Console.ReadLine().Split(" ").Select(int.Parse).ToArray();
 
-int a = int.Parse(Console.ReadLine());
-int[,] graph = new int[a, a];
-for(int s = 0; s < a; s++) {
-    int[] inputs = Console.ReadLine().Split(" ").Select(int.Parse).ToArray();
-    for( int t = 0; t < a; t++)
-    {
-        graph[s, t] = inputs[t];
-    }
-}
-for( int s = 0; s<a; s++)
+//int N = NM[0];
+//int M = NM[1];
+//int[,] dp = new int[N, M];
+
+//for( int s = 0; s<N; s++)
+//{
+//    for (int t = 0; t < N; t++) {
+//        dp[s, t] = -1;
+//    }
+//}
+
+int[] NA= Console.ReadLine().Split(" ").Select(int.Parse).ToArray();
+int N = NA[0];
+int A = NA[1];
+int[] P = Console.ReadLine().Split(" ").Select(int.Parse).ToArray();
+int[] Q = Console.ReadLine().Split(" ").Select(int.Parse).ToArray();
+int[] R = Console.ReadLine().Split(" ").Select(int.Parse).ToArray();
+
+int[,] dp = new int[N, 3];
+dp[0, 0] = P[0];
+dp[0, 1] = Q[0];
+dp[0, 2] = R[0];
+
+for( int x = 0; x < N; x++)
 {
-    for( int t = a-1; t >=0 ; t--)
+    dp[x, 0] = P[x];
+    dp[x, 1] = Q[x];
+    dp[x, 2] = R[x];
+}
+
+for ( int s = 1; s < N; s++)
+{
+    for( int t = 0; t < 3; t++)
     {
-        if( s==0 & t == a-1)
+        int compare = 0;
+        if (t == 0)
         {
-            graph[s, t] = graph[ 0, a-1];
-        }else if( s==0)
-        {
-            graph[s, t] += graph[s, t + 1];
-        }else if( t == a - 1)
-        {
-            graph[s, t] += graph[s - 1, t];
+            compare = Math.Min(dp[s - 1,1] + Q[s], dp[s - 1, 2] + R[s]);
+            dp[s, t] = Math.Min(dp[s - 1, 0] + P[s] - A, compare);
         }
-        else
+        if (t == 1)
         {
-            graph[s, t] += Math.Min(graph[s, t + 1], graph[s - 1, t]);
+            compare = Math.Min(dp[s - 1, 0] + Q[s], dp[s - 1, 2] + R[s]);
+            dp[s, t] = Math.Min(dp[s - 1, 1] +Q[s] - A, compare);
+        }
+        if (t == 2)
+        {
+            compare = Math.Min(dp[s - 1, 0] + Q[s], dp[s - 1, 1] + R[s]);
+            dp[s, t] = Math.Min(dp[s - 1, 2] +R[s] - A, compare);
         }
     }
 }
 
-Console.WriteLine(graph[a-1, 0]);
+for( int j = 0; j < N; j++)
+{
+    for( int k = 0; k < 3; k++)
+    {
+        Console.Write(dp[j, k]);
+    }
+    Console.WriteLine(" ");
+}
+
+int resultCompare = Math.Min(dp[N - 1, 0], dp[N - 1, 1]);
+Console.WriteLine(Math.Min(resultCompare, dp[N - 1, 2]));
