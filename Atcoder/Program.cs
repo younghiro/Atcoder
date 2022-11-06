@@ -112,56 +112,176 @@ using System.Collections.Generic;
 //    }
 //}
 
-int[] NA= Console.ReadLine().Split(" ").Select(int.Parse).ToArray();
-int N = NA[0];
-int A = NA[1];
-int[] P = Console.ReadLine().Split(" ").Select(int.Parse).ToArray();
-int[] Q = Console.ReadLine().Split(" ").Select(int.Parse).ToArray();
-int[] R = Console.ReadLine().Split(" ").Select(int.Parse).ToArray();
+//int[] NA = Console.ReadLine().Split(" ").Select(int.Parse).ToArray();
+//int N = NA[0];
+//int A = NA[1];
+//int[] P = Console.ReadLine().Split(" ").Select(int.Parse).ToArray();
+//int[] Q = Console.ReadLine().Split(" ").Select(int.Parse).ToArray();
+//int[] R = Console.ReadLine().Split(" ").Select(int.Parse).ToArray();
 
-int[,] dp = new int[N, 3];
-dp[0, 0] = P[0];
-dp[0, 1] = Q[0];
-dp[0, 2] = R[0];
+//int[,] dp = new int[N, 3];
+//dp[0, 0] = P[0];
+//dp[0, 1] = Q[0];
+//dp[0, 2] = R[0];
 
-for( int x = 0; x < N; x++)
+//for (int x = 0; x < N; x++)
+//{
+//    dp[x, 0] = P[x];
+//    dp[x, 1] = Q[x];
+//    dp[x, 2] = R[x];
+//}
+
+//for (int s = 1; s < N; s++)
+//{
+//    for (int t = 0; t < 3; t++)
+//    {
+//        int compare = 0;
+//        if (t == 0)
+//        {
+//            compare = Math.Min(dp[s - 1, 1] + Q[s], dp[s - 1, 2] + R[s]);
+//            dp[s, t] = Math.Min(dp[s - 1, 0] + P[s] - A, compare);
+//        }
+//        if (t == 1)
+//        {
+//            compare = Math.Min(dp[s - 1, 0] + Q[s], dp[s - 1, 2] + R[s]);
+//            dp[s, t] = Math.Min(dp[s - 1, 1] + Q[s] - A, compare);
+//        }
+//        if (t == 2)
+//        {
+//            compare = Math.Min(dp[s - 1, 0] + Q[s], dp[s - 1, 1] + R[s]);
+//            dp[s, t] = Math.Min(dp[s - 1, 2] + R[s] - A, compare);
+//        }
+//    }
+//}
+
+//for (int j = 0; j < N; j++)
+//{
+//    for (int k = 0; k < 3; k++)
+//    {
+//        Console.Write(dp[j, k]);
+//    }
+//    Console.WriteLine(" ");
+//}
+
+//int resultCompare = Math.Min(dp[N - 1, 0], dp[N - 1, 1]);
+//Console.WriteLine(Math.Min(resultCompare, dp[N - 1, 2]));
+//int[] NA = Console.ReadLine().Split(" ").Select(int.Parse).ToArray();
+//int N = NA[0];
+//int A = NA[1];
+//int[] P = Console.ReadLine().Split(" ").Select(int.Parse).ToArray();
+//int[] Q = Console.ReadLine().Split(" ").Select(int.Parse).ToArray();
+//int[] R = Console.ReadLine().Split(" ").Select(int.Parse).ToArray();
+
+//int[,] dp = new int[N, 3];
+//dp[0, 0] = P[0];
+//dp[0, 1] = Q[0];
+//dp[0, 2] = R[0];
+
+//for( int x = 0; x < N; x++)
+//{
+//    dp[x, 0] = P[x];
+//    dp[x, 1] = Q[x];
+//    dp[x, 2] = R[x];
+//}
+
+//for ( int s = 1; s < N; s++)
+//{
+//    for( int t = 0; t < 3; t++)
+//    {
+//        int compare = 0;
+//        if (t == 0)
+//        {
+//            compare = Math.Min(dp[s - 1,1] + Q[s], dp[s - 1, 2] + R[s]);
+//            dp[s, t] = Math.Min(dp[s - 1, 0] + P[s] - A, compare);
+//        }
+//        if (t == 1)
+//        {
+//            compare = Math.Min(dp[s - 1, 0] + Q[s], dp[s - 1, 2] + R[s]);
+//            dp[s, t] = Math.Min(dp[s - 1, 1] +Q[s] - A, compare);
+//        }
+//        if (t == 2)
+//        {
+//            compare = Math.Min(dp[s - 1, 0] + Q[s], dp[s - 1, 1] + R[s]);
+//            dp[s, t] = Math.Min(dp[s - 1, 2] +R[s] - A, compare);
+//        }
+//    }
+//}
+
+//for( int j = 0; j < N; j++)
+//{
+//    for( int k = 0; k < 3; k++)
+//    {
+//        Console.Write(dp[j, k]);
+//    }
+//    Console.WriteLine(" ");
+//}
+
+//int resultCompare = Math.Min(dp[N - 1, 0], dp[N - 1, 1]);
+//Console.WriteLine(Math.Min(resultCompare, dp[N - 1, 2]));
+
+//int[] NM = Console.ReadLine().Split(" ").Select(int.Parse).ToArray();
+//int N = NM[0];
+//int M = NM[1];
+////////
+////Listの中にListの配列
+//var List = new List<List<int>>();
+
+//for( int t = 0; t <M; t++)
+//{
+//    List.Add(new List<int>());
+//}
+////////
+//for ( int s = 0; s<M; s++)
+//{
+//    int[] AB = Console.ReadLine().Split(" ").Select(int.Parse).ToArray();
+//    int A = AB[0];
+//    int B = AB[1];
+//    List[A].Add(B);
+//}
+
+//foreach( List<int> a in List)
+//{
+//    var outputs = a.OrderBy(x=>x);
+//    foreach( var b in outputs)
+//    {
+//        Console.Write(b);
+//        Console.Write(" ");
+//    }
+//    Console.WriteLine();
+//}
+
+int[] NM = Console.ReadLine().Split(" ").Select(int.Parse).ToArray();
+int N = NM[0];
+int M = NM[1];
+
+var inputs = new List<List<int>>();
+for( int a = 0; a < N; a++)
 {
-    dp[x, 0] = P[x];
-    dp[x, 1] = Q[x];
-    dp[x, 2] = R[x];
+    inputs[a] = new List<int>();
 }
 
-for ( int s = 1; s < N; s++)
+for( int b =0; b < M; b++)
 {
-    for( int t = 0; t < 3; t++)
+    int[] AB = Console.ReadLine().Split(" ").Select(int.Parse).ToArray();
+    inputs[AB[0]].Add(AB[1]);
+}
+
+var count = new List<int>();
+var order = 0;
+for( int d = 0; d < N; d++)
+{
+    count.Add(inputs[d].Count);
+}
+for ( int e =1; e < N; e++)
+{
+    if (count[e-1] < count[e])
     {
-        int compare = 0;
-        if (t == 0)
-        {
-            compare = Math.Min(dp[s - 1,1] + Q[s], dp[s - 1, 2] + R[s]);
-            dp[s, t] = Math.Min(dp[s - 1, 0] + P[s] - A, compare);
-        }
-        if (t == 1)
-        {
-            compare = Math.Min(dp[s - 1, 0] + Q[s], dp[s - 1, 2] + R[s]);
-            dp[s, t] = Math.Min(dp[s - 1, 1] +Q[s] - A, compare);
-        }
-        if (t == 2)
-        {
-            compare = Math.Min(dp[s - 1, 0] + Q[s], dp[s - 1, 1] + R[s]);
-            dp[s, t] = Math.Min(dp[s - 1, 2] +R[s] - A, compare);
-        }
+        order = e;
     }
 }
 
-for( int j = 0; j < N; j++)
+foreach(int a in inputs[order])
 {
-    for( int k = 0; k < 3; k++)
-    {
-        Console.Write(dp[j, k]);
-    }
-    Console.WriteLine(" ");
+    Console.Write(a);
+    Console.Write("　");
 }
-
-int resultCompare = Math.Min(dp[N - 1, 0], dp[N - 1, 1]);
-Console.WriteLine(Math.Min(resultCompare, dp[N - 1, 2]));
