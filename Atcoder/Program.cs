@@ -250,38 +250,181 @@ using System.Collections.Generic;
 //    Console.WriteLine();
 //}
 
-int[] NM = Console.ReadLine().Split(" ").Select(int.Parse).ToArray();
-int N = NM[0];
-int M = NM[1];
+//int[] NM = Console.ReadLine().Split(" ").Select(int.Parse).ToArray();
+//int N = NM[0];
+//int M = NM[1];
 
-var inputs = new List<List<int>>();
-for( int a = 0; a < N; a++)
+//var inputs = new List<List<int>>();
+//for (int a = 0; a < N; a++)
+//{
+//        inputs.Add(new List<int>());
+//}
+
+//for (int b = 0; b < M; b++)
+//{
+//    int[] AB = Console.ReadLine().Split(" ").Select(int.Parse).ToArray();
+//    inputs[AB[0]].Add(AB[1]);
+//    inputs[AB[1]].Add(AB[0]);
+//}
+
+//var count = new List<int>();
+//var order = 0;
+//for (int d = 0; d < N; d++)
+//{
+//    count.Add(inputs[d].Count);
+//}
+//var order2 = count.OrderByDescending(x => x);
+//var List = new List<int>();
+//foreach( int f in order2)
+//{
+//    List.Add(f);
+//}
+//var ans = new List<int>();
+//for (int e = 0; e < N; e++)
+//{
+//    if (inputs[e].Count == List[0])
+//    {
+//        ans.Add(e);
+//    }
+//}
+
+//foreach (int a in inputs[ans[0]])
+//{
+//    Console.Write(a);
+//    Console.Write("　");
+//}
+
+//int[] NMX = Console.ReadLine().Split(" ").Select(int.Parse).ToArray();
+//int N = NMX[0];
+//int M = NMX[1];
+//int X = NMX[2];
+//var inputs = new List<List<int>>();
+//for( int a = 0; a < M; a++)
+//{
+//    inputs.Add(new List<int>());
+//}
+//for (int a = 0; a < M; a++)
+//{
+//    int[] AB = Console.ReadLine().Split(" ").Select(int.Parse).ToArray();
+//    inputs[AB[0]].Add(AB[1]);
+//    inputs[AB[1]].Add(AB[0]);
+//}
+/////////////////////////
+//////////間違い
+////////////////////////
+//int i = -1;
+//if (inputs[X].Count <= 1 || inputs[X].Count == N - 1)
+//{
+//    Console.WriteLine(0);
+//}
+//else
+//{
+//    for (int b = 1; b < inputs[X].Count; b++)
+//    {
+//        for (int d = 0; d < inputs[b - 1].Count; d++)
+//        {
+//            for (int e = 0; e < inputs[b].Count; e++)
+//                if (inputs[b - 1][d] == inputs[b][e])
+//                {
+//                    i++;
+//                }
+//        }
+//    }
+//    int all = 0;
+//    foreach (int f in inputs[X])
+//    {
+//        all = all + inputs[f].Count;
+//    }
+
+//    Console.WriteLine(all - i);
+//}
+
+//var ansContent = new List<int>();
+//int ans = 0;
+//if (inputs[X] != null){
+//    foreach( var f in inputs[X])
+//    {
+//        foreach( var ff in inputs[f])
+//        {
+//            if(!inputs[X].Contains(ff) && ff != X)
+//            {
+//                ansContent.Add(ff);
+//            }
+//        }
+//    }
+//    ans = ansContent.Count;
+//}
+
+//Console.Write(ans);
+
+//int[] NX = Console.ReadLine().Split(" ").Select(int.Parse).ToArray();
+//int[] A = Console.ReadLine().Split(" ").Select(int.Parse).ToArray();
+//int N = NX[0];
+//int X = NX[1];//int[] NX = Console.ReadLine().Split(" ").Select(int.Parse).ToArray();
+//int[] A = Console.ReadLine().Split(" ").Select(int.Parse).ToArray();
+//int N = NX[0];
+//int X = NX[1];
+//var list = new List<int>();
+//list.Add(A[0]);
+//for( int s = 1; s < N; s++)
+//{
+//    if (A[s-1] > A[s])
+//    {
+//        list.Add(s);
+//    }
+//}
+//for (int i = 1; i < N; i++)
+//{
+//    A[i] = int.Parse(input[i - 1]);
+//}
+
+//int cnt = 0;
+//while (X != 0)
+//{
+//    cnt++;
+//    X = A[X];
+//}
+
+//Console.WriteLine(cnt);
+
+
+//string[] NX = Console.ReadLine().Split(' ');
+//int N = int.Parse(NX[0]);
+//int X = int.Parse(NX[1]);
+//int[] A = new int[N + 1];
+//A[0] = 0;
+//string[] input = Console.ReadLine().Split(' ');
+//for (int i = 1; i < N; i++)
+//{
+//    A[i] = int.Parse(input[i - 1]);
+//}
+
+//int cnt = 0;
+//while (X != 0)
+//{
+//    cnt++;
+//    Console.Write(X);
+//    X = A[X];
+//    //Console.WriteLine(A[X]);
+//}
+
+//Console.WriteLine(cnt);
+
+int[] NX = Console.ReadLine().Split(" ").Select(int.Parse).ToArray();
+int[] A = Console.ReadLine().Split(" ").Select(int.Parse).ToArray();
+int N = NX[0];
+int X = NX[1];
+int[] boxes = new int[N + 1];
+boxes[0] = 0;
+for( int s = 1; s < N; s++)
 {
-    inputs[a] = new List<int>();
+    boxes[s] = A[s-1];
+}
+int count = 0;
+while( X!=0)
+{
+    count++;
+    X = boxes[X];
 }
 
-for( int b =0; b < M; b++)
-{
-    int[] AB = Console.ReadLine().Split(" ").Select(int.Parse).ToArray();
-    inputs[AB[0]].Add(AB[1]);
-}
-
-var count = new List<int>();
-var order = 0;
-for( int d = 0; d < N; d++)
-{
-    count.Add(inputs[d].Count);
-}
-for ( int e =1; e < N; e++)
-{
-    if (count[e-1] < count[e])
-    {
-        order = e;
-    }
-}
-
-foreach(int a in inputs[order])
-{
-    Console.Write(a);
-    Console.Write("　");
-}
+Console.Write(count);
