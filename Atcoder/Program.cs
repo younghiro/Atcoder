@@ -410,21 +410,52 @@ using System.Collections.Generic;
 
 //Console.WriteLine(cnt);
 
-int[] NX = Console.ReadLine().Split(" ").Select(int.Parse).ToArray();
+//int[] NX = Console.ReadLine().Split(" ").Select(int.Parse).ToArray();
+//int[] A = Console.ReadLine().Split(" ").Select(int.Parse).ToArray();
+//int N = NX[0];
+//int X = NX[1];
+//int[] boxes = new int[N + 1];
+//boxes[0] = 0;
+//for( int s = 1; s < N; s++)
+//{
+//    boxes[s] = A[s-1];
+//}
+//int count = 0;
+//while( X!=0)
+//{
+//    count++;
+//    X = boxes[X];
+//}
+
+//Console.Write(count);
+
+int[] NX= Console.ReadLine().Split(" ").Select(int.Parse).ToArray();
 int[] A = Console.ReadLine().Split(" ").Select(int.Parse).ToArray();
+
 int N = NX[0];
 int X = NX[1];
-int[] boxes = new int[N + 1];
-boxes[0] = 0;
-for( int s = 1; s < N; s++)
+
+var List = new List<List<int>>();
+for ( int a = 0; a < N+1; a++)
 {
-    boxes[s] = A[s-1];
-}
-int count = 0;
-while( X!=0)
-{
-    count++;
-    X = boxes[X];
+    List.Add(new List<int>());
 }
 
-Console.Write(count);
+List[0].Add(0);
+
+for( int s = 1; s < N; s++)
+{
+    List[A[s]].Add(s);
+}
+int count = 0;
+
+recallfunction( 0
+void recallfunction( List<int> x , int y){
+    count++;
+    if (List[y].Count == 0)
+    {
+        return ;
+    }
+    foreach (int t in List[x])
+    recallfunction( );
+}
