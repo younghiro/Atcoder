@@ -2,6 +2,7 @@
 using System;
 using System.Linq;
 using System.Collections.Generic;
+using static System.Net.Mime.MediaTypeNames;
 
 //int[] inputs = Console.ReadLine().Split(" ").Select(int.Parse).ToArray();
 //int n = inputs[0];
@@ -429,33 +430,185 @@ using System.Collections.Generic;
 
 //Console.Write(count);
 
-int[] NX= Console.ReadLine().Split(" ").Select(int.Parse).ToArray();
-int[] A = Console.ReadLine().Split(" ").Select(int.Parse).ToArray();
+//int[] NX= Console.ReadLine().Split(" ").Select(int.Parse).ToArray();
+//int[] A = Console.ReadLine().Split(" ").Select(int.Parse).ToArray();
 
-int N = NX[0];
-int X = NX[1];
+//int N = NX[0];
+//int X = NX[1];
 
-var List = new List<List<int>>();
-for ( int a = 0; a < N+1; a++)
-{
-    List.Add(new List<int>());
-}
+//var List = new List<List<int>>();
+//for ( int a = 0; a < N+1; a++)
+//{
+//    List.Add(new List<int>());
+//}
 
-List[0].Add(0);
+//List[0].Add(0);
 
-for( int s = 1; s < N; s++)
-{
-    List[A[s]].Add(s);
-}
-int count = 0;
+//for( int s = 1; s < N; s++)
+//{
+//    List[A[s]].Add(s);
+//}
+//int count = 0;
 
-recallfunction( 0
-void recallfunction( List<int> x , int y){
-    count++;
-    if (List[y].Count == 0)
-    {
-        return ;
-    }
-    foreach (int t in List[x])
-    recallfunction( );
-}
+//recallfunction( 0
+//void recallfunction( List<int> x , int y){
+//    count++;
+//    if (List[y].Count == 0)
+//    {
+//        return ;
+//    }
+//    foreach (int t in List[x])
+//    recallfunction( );
+//}
+
+//int[] NMX = Console.ReadLine().Split(" ").Select(int.Parse).ToArray();
+//int N = NMX[0];
+//int M = NMX[1];
+//int X = NMX[2];
+//var List= new List<List<int>>();
+
+//for (int s = 0; s < N; s++){
+//    List.Add(new List<int>());
+//}
+
+//for (int t = 0; t < M; t++)
+//{
+//    int[] AB = Console.ReadLine().Split(" ").Select(int.Parse).ToArray();
+//    List[AB[0]].Add(AB[1]);
+//}
+
+//I can be placed before V (5) and X (10) to make 4 and 9. 
+//X can be placed before L (50) and C(100) to make 40 and 90. 
+//C can be placed before D (500) and M(1000) to make 400 and 900.
+
+//Symbol Value
+//I             1
+//V             5
+//X             10
+//L             50
+//C             100
+//D             500
+//M             1000
+
+//Solution solution = new Solution();
+
+//int output = solution.RomanToInt(Console.ReadLine());
+//Console.WriteLine(output.ToString());
+
+//public class Solution
+//{
+//    public int RomanToInt(string s)
+//    {
+//        int answer = 0;
+//        int length = s.Length +1;
+//        //データ型[] 配列名 = new データ型[要素数];
+//        string[] numbers = new string[15];
+//        //Console.WriteLine(numbers.Length);
+
+//        numbers = s.Select(x => x.ToString()).ToArray();
+//        //Console.WriteLine(numbers.Length);
+//        Array.Resize(ref numbers, length);
+//        //Console.WriteLine(numbers.Length);
+//        //foreach (string i in numbers)
+//        //{
+//        //    Console.WriteLine(i);
+//        //}
+//        //Console.WriteLine(length);
+//        //Console.ReadLine();
+
+//        for (int q = 0; q < length; q++)
+//        {
+//            if (numbers[q] == "I")
+//            {
+//                if (numbers[q + 1] == "V")
+//                {
+//                    answer += 4;
+//                    q++;
+//                    continue;
+//                }
+//                else if (numbers[q + 1] == "X")
+//                {
+//                    answer += 9;
+//                    q++;
+//                    continue;
+//                }
+//                else
+//                {
+//                    answer += 1;
+//                }
+
+//            }
+//            if (numbers[q] == "X")
+//            {
+//                if (numbers[q + 1] == "L")
+//                {
+//                    answer += 40;
+//                    q++;
+//                    continue;
+//                }
+//                else if (numbers[q + 1] == "C")
+//                {
+//                    answer += 90;
+//                    q++;
+//                    continue;
+//                }
+//                else
+//                {
+//                    answer += 10;
+//                }
+//            }
+
+//            if (numbers[q] == "C")
+//            {
+//                if (numbers[q + 1] == "D")
+//                {
+//                    answer += 400;
+//                    q++;
+//                    continue;
+//                }
+//                else if (numbers[q + 1] == "M")
+//                {
+//                    answer += 900;
+//                    q++;
+//                    continue;
+//                }
+//                else
+//                {
+//                    answer += 100;
+//                }
+//            }
+
+//            if (numbers[q] == "V") { answer += 5; }
+//            if (numbers[q] == "L") { answer += 50; }
+//            if (numbers[q] == "D") { answer += 500; }
+//            if (numbers[q] == "M") { answer += 1000; }
+//        }
+//        return answer;
+//    }
+//}
+
+//Solution solution = new Solution();
+//int[] nums = new int[3];
+//nums[0] = 3;
+//nums[0] = 2;
+//nums[0] = 4;
+
+//public class Solution
+//{
+//    public int[] TwoSum(int[] nums, int target)
+//    {
+//        //データ型[] 配列名 = new データ型[要素数];
+//        int[] answer = new int[2];
+//        for( int s = 0; s < nums.Length; s++) {
+//            for(int t = 1; t < nums.Length -1; t++)
+//            {
+//                if (nums[s] + nums[t] == target)
+//                {
+//                    answer[0] = s;
+//                    answer[1] = t;
+//                }
+//            }
+//        }
+//        return answer;
+//    }
+//}
