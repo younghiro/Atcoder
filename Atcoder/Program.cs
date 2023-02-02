@@ -636,17 +636,142 @@ using static System.Net.Mime.MediaTypeNames;
 //''flower, "flow", "flight"
 
 
-string[] strs = new string[3] { "flower", "flow", "flight" };
-//Solution s = new Solution();
+//string[] strs = new string[3] { "flower", "flow", "flight" };
+////Solution s = new Solution();
 
-string prefix = strs[0];
-Console.WriteLine(strs.Length.ToString());
-for (int s = 1; s < strs.Length; s++)
-{
-    while (strs[s].IndexOf(prefix) != 0)
-    {
-        prefix = prefix.Substring(0, prefix.Length-1);
-    }
-}
+//string prefix = strs[0];
+//for (int s = 1; s < strs.Length; s++)
+//{
+//    while (strs[s].IndexOf(prefix) != 0)
+//    {
+//        prefix = prefix.Substring(0, prefix.Length-1);
+//    }
+//}
 
-Console.Write(prefix);
+//Console.Write(prefix);
+
+//Dictionary<int, int> hashtable = new Dictionary<int, int>();
+//int target;
+//for( int s = 0; s < nums.Lenght; s++)
+//{
+//    int compliment = target - nums[s];
+
+//    if (hashtable.ContainsKey(compliment))
+//    {
+//        new int(hashtable[compliment], i);// return index
+//    }
+//    else
+//    {
+//        hashtable[nums[s]] = i;
+//    }
+//}
+//string input = " ";
+//input = Console.ReadLine();
+
+//int b = input.Length;
+//int c = b - 1;
+////var array = new char[b];
+
+////List<int> i = new List<int>();
+
+////foreach( char a in input) {
+
+////}
+//bool check = false;
+//string[] splitArray = input.Select(x => x.ToString()).ToArray();
+
+//if(splitArray[0] == "-") {
+//    check = false;
+//}
+//Console.WriteLine(b.ToString());
+//for( int s = 0; s< b; s++)
+//{
+//    if (splitArray[s] == splitArray[c-s])
+//    {
+//        check = true;
+//    }
+//    else { check = false; }
+//}
+
+//Console.WriteLine( check);
+
+//while (check)
+//{
+//    check = true;
+//}
+
+//////////////////////////////
+///アルゴ式
+/////////////////////////////
+
+//var nm = Console.ReadLine().Split().Select(int.Parse).ToArray();
+
+////int[] A = Console.ReadLine().Split(" ").Select(int.Parse).ToArray();
+
+////var nm = Console.ReadLine().Split().Select(int.Parse).ToArray();
+///
+
+//var nm = Console.ReadLine().Split().Select(int.Parse).ToArray();
+//Console.WriteLine(nm[0] >> nm[1]);
+
+//using System;
+//using System.Linq;
+//using System.Collections.Generic;
+
+//using System;
+//using System.Net.NetworkInformation;
+
+//2using Linq;
+//3using Collections.Generic;
+//4
+//5class Program
+//{
+//6  static void Main(string[] args)
+//    {
+//        7    int input[] = Console.ReadLine().Split().Select(int.Parse).ToArray;
+//        8    Console.WriteLine(input[0] << input[1]);
+//        9  }
+//10}
+
+//using System;
+//using Linq;
+//using Collections.Generic;
+
+//int input = int.Parse(Console.ReadLine());
+//Console.WriteLine(input << 1);
+
+//int a = int.Parse(Console.ReadLine());
+
+//Console.WriteLine( 1<< a);
+
+//2 つの整数 A, i が与えられます。
+//A と 2 
+//i
+//  の論理積 (AND) を求めるプログラムを作成してください。
+
+//int[] input = Console.ReadLine().Split().Select(int.Parse).ToArray();
+
+//Console.WriteLine(input[0] & 1 << input[1]);
+
+
+//最初、N 個のスイッチは整数値 S で表される状態となっています。
+// この状態に対して、Q 回のクエリが与えられます。
+// それぞれのクエリに答えてください。
+
+//int[] inputs = Console.ReadLine().Split().Select(int.Parse).ToArray();
+//int input = int.Parse(Console.ReadLine());
+
+//for( int s = 0; s < input; s++)
+//{
+//    int[] query = Console.ReadLine().Split().Select(int.Parse).ToArray();
+//    if (query[0] == 0)
+//    {
+
+//    }
+//    else
+//    {
+
+//    }
+//}
+
+//Console.WriteLine(13 & 1 << 1);
