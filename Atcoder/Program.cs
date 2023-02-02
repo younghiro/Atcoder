@@ -612,3 +612,41 @@ using static System.Net.Mime.MediaTypeNames;
 //        return answer;
 //    }
 //}
+
+//var List= new List<List<int>>();
+
+////var List= new List<List<int>>();
+
+//for (int s = 0; s < N; s++){
+//    List.Add(new List<int>());
+//}
+
+//for (int t = 0; t < M; t++)
+//{
+//    int[] AB = Console.ReadLine().Split(" ").Select(int.Parse).ToArray();
+//    List[AB[0]].Add(AB[1]);
+//}
+
+
+//for (int t = 0; t < M; t++)
+//{
+//    int[] AB = Console.ReadLine().Split(" ").Select(int.Parse).ToArray();
+//    List[AB[0]].Add(AB[1]);
+//}
+//''flower, "flow", "flight"
+
+
+string[] strs = new string[3] { "flower", "flow", "flight" };
+//Solution s = new Solution();
+
+string prefix = strs[0];
+Console.WriteLine(strs.Length.ToString());
+for (int s = 1; s < strs.Length; s++)
+{
+    while (strs[s].IndexOf(prefix) != 0)
+    {
+        prefix = prefix.Substring(0, prefix.Length-1);
+    }
+}
+
+Console.Write(prefix);
