@@ -775,3 +775,139 @@ using static System.Net.Mime.MediaTypeNames;
 //}
 
 //Console.WriteLine(13 & 1 << 1);
+
+//string input = Console.ReadLine();
+//int comparative = int.Parse(input);
+//int n = int.Parse(input);
+//int r = 0;
+//int rev = 0; //revは指定された整数の逆を格納
+
+//while (n > 0)
+//{
+//    r = n % 10; //inputの最後の桁をrに格納      
+//    rev = rev * 10 + r;　//rev=65, r=4の時、654
+
+//    n = n / 10; //nから最後の一桁を削除
+//}
+
+//if (comparative == rev)
+//{
+//    Console.WriteLine(true);
+//}
+//else
+//{
+//    Console.WriteLine(false);
+//}
+//Solution solution = new Solution();
+//Console.WriteLine(solution.IsPalindrome(121));
+
+//public class Solution
+//{
+//    public bool IsPalindrome(int x)
+//    {
+//        int n = x;
+//        int rev = 0;
+//        while (n > 0)
+//        {
+//            int r = n % 10;
+//            rev = rev * 10 + r;
+//            n = n / 10;
+//        }
+
+//        if (x == rev)
+//        {
+//            return true;
+//        }
+//        else
+//        {
+//            return false;
+//        }
+//    }
+//}
+
+//'(', ')', '{', '}', '[' and ']'
+
+//文字列を一文字ずつに分け配列に入れる
+//string[] splitArray = text.Select(x => x.ToString()).ToArray();
+
+//Solution solution = new Solution();
+//Console.WriteLine(solution.IsValid("{[]}"));
+
+//public class Solution
+//{
+//    public bool IsValid(string s)
+//    {
+//        bool result = true;
+//        string[] inputs = s.Select(x => x.ToString()).ToArray();
+//        for( int t = 0; t < s.Length; t = t+2)
+//        {
+//            if (inputs[t] == "(" & inputs[t + 1] == ")"){
+//                continue;
+//            }else if(inputs[t] == "[" & inputs[t + 1] == "]")
+//            {
+//                continue;
+//            }
+//            else if (inputs[t] == "{" & inputs[t + 1] == "}")
+//            {
+//                continue;
+//            }
+//            else  { result = false; }
+//        }
+
+//        for (int p = 0; p < s.Length; p ++)
+//        {
+//            Console.WriteLine(p);
+//            Console.WriteLine(s.Length - p - 1);
+//            if (inputs[p] == inputs[s.Length - p - 1])
+//            {
+//                result = true;
+//            }
+//        }
+//            return result;
+//    }
+//}
+
+Solution solution = new Solution();
+Console.WriteLine(solution.IsValid("(("));
+
+public class Solution
+{
+    public bool IsValid(string s)
+    {
+        Stack<char> stack = new Stack<char>();
+        List<char> opnings = new List<char>
+        {
+            '(','{','['
+        };
+
+        //'(', ')', '{', '}', '[' and ']',
+
+        var map = new Dictionary<char, char>
+        {
+            {'(',')'},
+            {'{', '}'},
+            {'[', ']'}
+        };
+
+        foreach(char t in s)
+        {
+            if (opnings.Contains(t))
+            {
+                stack.Push(t);
+            }
+            else
+            {
+                if (stack.Count == 0) return false;
+                char judge = stack.Pop();
+                if( t != map[judge])
+                {
+                    return false;
+                }
+            }
+        }
+
+        if (stack.Count > 0) { return false; }else {
+            return true;
+            }
+                }
+}
