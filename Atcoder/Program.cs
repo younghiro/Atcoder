@@ -936,59 +936,99 @@ using static System.Net.Mime.MediaTypeNames;
 
 //'(', ')', '{', '}', '[' and ']'
 
-Solution solution = new Solution();
-Console.WriteLine(solution.IsValid("()"));
+//Solution solution = new Solution();
+//Console.WriteLine(solution.IsValid("()"));
 
-public class Solution
-{
-    public bool IsValid(string s)
-    {
-        Stack<char> input = new Stack<char>();
-        List<char> openings = new List<char>
-        {
-            '(','{','['
-        };
+//public class Solution
+//{
+//    public bool IsValid(string s)
+//    {
+//        Stack<char> input = new Stack<char>();
+//        List<char> openings = new List<char>
+//        {
+//            '(','{','['
+//        };
 
-        Dictionary<char, char> map = new Dictionary<char, char>
-        {
-            {'(', ')'},
-            {'{', '}'},
-            {'[', ']'}
-        };
+//        Dictionary<char, char> map = new Dictionary<char, char>
+//        {
+//            {'(', ')'},
+//            {'{', '}'},
+//            {'[', ']'}
+//        };
 
-        foreach( char a in s)
-        {
-            if( openings.Contains(a) )
-            {
-                input.Push(a);
-            }else 
-            {
-                if (input.Count == 0) return false;
-                char judge = input.Pop();
-                if( a != map[judge])  return false;
+//        foreach( char a in s)
+//        {
+//            if( openings.Contains(a) )
+//            {
+//                input.Push(a);
+//            }else 
+//            {
+//                if (input.Count == 0) return false;
+//                char judge = input.Pop();
+//                if( a != map[judge])  return false;
 
-                
-            }
-        }
-            //foreach (char t in s)
-            //        {
-            //            if (opnings.Contains(t))
-            //            {
-            //                stack.Push(t);
-            //            }
-            //            else
-            //            {
-            //                if (stack.Count == 0) return false;
-            //                char judge = stack.Pop();
-            //                if( t != map[judge])
-            //                {
-            //                    return false;
-            //                }
-            //            }
-            //        }
 
-            //        if (stack.Count > 0) { return false; }else {
-            //            return true;
-            return true;
-    }
-}
+//            }
+//        }
+//            //foreach (char t in s)
+//            //        {
+//            //            if (opnings.Contains(t))
+//            //            {
+//            //                stack.Push(t);
+//            //            }
+//            //            else
+//            //            {
+//            //                if (stack.Count == 0) return false;
+//            //                char judge = stack.Pop();
+//            //                if( t != map[judge])
+//            //                {
+//            //                    return false;
+//            //                }
+//            //            }
+//            //        }
+
+//            //        if (stack.Count > 0) { return false; }else {
+//            //            return true;
+//            return true;
+//    }
+//}
+
+//var List = new List<List<int>>();
+//List.Add(new List<int>());
+//int N = int.Parse(Console.ReadLine());
+//for (int s = 0; s < N; s++)
+//{
+//    int[] input = Console.ReadLine().Split(" ").Select(int.Parse).ToArray();
+//    if (input[0] == 1)
+//    {
+//        List[s][0] = input[1];
+//        List[s][1] = input[2];
+
+//        for (int q = 0; q < List.Count; q++)
+//        {
+//            for (int p = 0; p < List.Count; p++)
+//            {
+//                if (List[q][0] < List[p][0] && List[q][1] < List[p][1])
+//                {
+//                    List[q][0] = 0;
+//                }
+//            }
+//        }
+//    }
+
+//    if (input[0] == 2)
+//    {
+//        int answer = 0;
+//        List[s].Add(0);
+//        List[s].Add(0);
+//        foreach (var a in List)
+//        {
+//            if (a[0] != 0)
+//            {
+//                answer++;
+//            }
+//        }
+
+//        Console.WriteLine(answer);
+//    }
+//}
