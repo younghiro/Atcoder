@@ -867,47 +867,128 @@ using static System.Net.Mime.MediaTypeNames;
 //    }
 //}
 
+//Solution solution = new Solution();
+//Console.WriteLine(solution.IsValid("(("));
+
+//public class Solution
+//{
+//    public bool IsValid(string s)
+//    {
+//        Stack<char> stack = new Stack<char>();
+//        List<char> opnings = new List<char>
+//        {
+//            '(','{','['
+//        };
+
+//        //'(', ')', '{', '}', '[' and ']',
+
+//        var map = new Dictionary<char, char>
+//        {
+//            {'(',')'},
+//            {'{', '}'},
+//            {'[', ']'}
+//        };
+
+//        foreach(char t in s)
+//        {
+//            if (opnings.Contains(t))
+//            {
+//                stack.Push(t);
+//            }
+//            else
+//            {
+//                if (stack.Count == 0) return false;
+//                char judge = stack.Pop();
+//                if( t != map[judge])
+//                {
+//                    return false;
+//                }
+//            }
+//        }
+
+//        if (stack.Count > 0) { return false; }else {
+//            return true;
+//            }
+//                }
+//}
+
+//Solution solution = new Solution();
+//Console.WriteLine(solution.ClimbStairs(4));
+
+//public class Solution
+//{
+//    public int ClimbStairs(int n)
+//    {
+//        int[] dp = new int[n + 1];
+//        dp[0] = 1;
+//        dp[1] = 1;
+
+//        if (n == 1) return 1;
+//        for( int s = 2; s <= n; s++)
+//        {
+//            dp[s] = dp[s - 1] + dp[s - 2];
+//            Console.WriteLine(dp[s]);
+//        }
+//        return dp[n];
+//    }
+//}
+
+
+//'(', ')', '{', '}', '[' and ']'
+
 Solution solution = new Solution();
-Console.WriteLine(solution.IsValid("(("));
+Console.WriteLine(solution.IsValid("()"));
 
 public class Solution
 {
     public bool IsValid(string s)
     {
-        Stack<char> stack = new Stack<char>();
-        List<char> opnings = new List<char>
+        Stack<char> input = new Stack<char>();
+        List<char> openings = new List<char>
         {
             '(','{','['
         };
 
-        //'(', ')', '{', '}', '[' and ']',
-
-        var map = new Dictionary<char, char>
+        Dictionary<char, char> map = new Dictionary<char, char>
         {
-            {'(',')'},
+            {'(', ')'},
             {'{', '}'},
             {'[', ']'}
         };
 
-        foreach(char t in s)
+        foreach( char a in s)
         {
-            if (opnings.Contains(t))
+            if( openings.Contains(a) )
             {
-                stack.Push(t);
-            }
-            else
+                input.Push(a);
+            }else 
             {
-                if (stack.Count == 0) return false;
-                char judge = stack.Pop();
-                if( t != map[judge])
-                {
-                    return false;
-                }
+                if (input.Count == 0) return false;
+                char judge = input.Pop();
+                if( a != map[judge])  return false;
+
+                
             }
         }
+            //foreach (char t in s)
+            //        {
+            //            if (opnings.Contains(t))
+            //            {
+            //                stack.Push(t);
+            //            }
+            //            else
+            //            {
+            //                if (stack.Count == 0) return false;
+            //                char judge = stack.Pop();
+            //                if( t != map[judge])
+            //                {
+            //                    return false;
+            //                }
+            //            }
+            //        }
 
-        if (stack.Count > 0) { return false; }else {
+            //        if (stack.Count > 0) { return false; }else {
+            //            return true;
             return true;
-            }
-                }
+    }
 }
