@@ -1032,3 +1032,136 @@ using static System.Net.Mime.MediaTypeNames;
 //        Console.WriteLine(answer);
 //    }
 //}
+
+//int[] NM = Console.ReadLine().Split(" ").Select(int.Parse).ToArray();
+//int[] inputs = Console.ReadLine().Split(" ").Select(int.Parse).ToArray();
+
+//bool[,] dp = new bool[NM[0], NM[1]];
+//for( int p = 0; p < NM[0]; p++)
+//{
+//    for( int q = 0; q < NM[1]; q++)
+//    {
+//        dp[p,q] = false;
+//    }
+//}
+
+//dp[0, 0] = false;
+
+//for( int s = 0; s < NM.Length; s++)
+//{
+
+//    int judge = 0;
+//    judge = judge + inputs[s];
+//    if (judge < NM[1])
+//    {
+//        dp[s+1, judge] = true;
+//    }
+
+//    for ( int t = 0; t < NM[1]; t++)
+//    {
+//        if (dp[s,t] == true && s+1 < NM[0])
+//        {
+//            dp[s + 1, t] = true;
+//        }
+//    }
+//}
+
+//for( int i = 0; i < NM[0]-1; i++)
+//{
+//    for( int j = 0; j < NM[1]; j++)
+//    {
+//        if (!dp[i, j]) continue;
+//        dp[i + 1, j] = true;
+//        if (j + inputs[i] < NM[1]) dp[i + 1, j + inputs[i]] = true;
+//    }
+//}
+////for (int i = 0; i < NM[0] - 1; i++)
+////{
+////    for (int j = 0; j < NM[1]; j++)
+////    {
+////        if (!dp[i, j]) continue;
+////        dp[i + 1, j] = true;
+////        if (j + A[i] < NM[1]) dp[i + 1, j + A[i]] = true;
+////    }
+////}
+
+//int result = 0;
+//for( int a = 0; a < NM[1]; a++)
+//{
+//    if (dp[NM[0]-1,a] == true)
+//    {
+//        result++;
+//    }
+//}
+
+//Console.WriteLine(result);
+
+
+
+//for( int s = NM[0]; s > 0; s--)
+//{
+//    dp[]
+//}
+
+//3 4
+//1 2 3
+//int[] NM = Console.ReadLine().Split(" ").Select(int.Parse).ToArray();
+//int[] inputs = Console.ReadLine().Split(" ").Select(int.Parse).ToArray();
+
+//bool[,] dp = new bool[NM[0]+1, NM[1]+1];
+//for( int i = 0; i < NM[0]; i++)
+//{
+//    for ( int j = 0; j < NM[1] ; j++)
+//    {
+//        if(dp[i, j]) dp[i+1, j] = true;
+//        if(j + inputs[i] <= NM[1])
+//        {
+//            dp[i + 1, j + inputs[i]] = true;
+//        }
+//    }
+//}
+
+//int result = 0;
+//for (int a = 0; a <= NM[0]; a++)
+//{
+//    if (dp[a, NM[1]] == true)
+//    {
+//        result++;
+//    }
+//}
+
+//Console.WriteLine(result);
+int[] NM= Console.ReadLine().Split(" ").Select(int.Parse).ToArray();
+int[] A = Console.ReadLine().Split(" ").Select(int.Parse).ToArray();
+int[] B = Console.ReadLine().Split(" ").Select(int.Parse).ToArray();
+
+int[,] dp = new int[NM[0], NM[1]];
+
+for( int s = 0; s < NM[0]; s++)
+{
+    for ( int t = 0; t < NM[1]; t++)
+    {
+        dp[s, t] = -1;
+    }
+}
+
+dp[0, 0] = 0;
+
+for ( int i = 0; i < NM[0] -1; i++ )
+{
+    for( int j = 0; j < NM[1]; j++)
+    {
+        if (dp[i+1, j] < dp[i,j])
+        {
+            dp[i+1, j] = dp[i, j];
+        }
+        if( j + A[i] < NM[1] )
+        {
+            dp[i + 1, j + A[i]] = Math.Max(dp[i + 1, j + A[i]], dp[i, j] + B[i]);
+        }
+        
+    }
+}
+
+Console.WriteLine(dp[NM[0]-1, NM[1]-1]);
+Console.ReadLine();
