@@ -1131,37 +1131,151 @@ using static System.Net.Mime.MediaTypeNames;
 //}
 
 //Console.WriteLine(result);
-int[] NM= Console.ReadLine().Split(" ").Select(int.Parse).ToArray();
-int[] A = Console.ReadLine().Split(" ").Select(int.Parse).ToArray();
-int[] B = Console.ReadLine().Split(" ").Select(int.Parse).ToArray();
+//int[] NM= Console.ReadLine().Split(" ").Select(int.Parse).ToArray();
+//int[] A = Console.ReadLine().Split(" ").Select(int.Parse).ToArray();
+//int[] B = Console.ReadLine().Split(" ").Select(int.Parse).ToArray();
 
-int[,] dp = new int[NM[0], NM[1]];
+//int[,] dp = new int[NM[0], NM[1]];
 
-for( int s = 0; s < NM[0]; s++)
+//for( int s = 0; s < NM[0]; s++)
+//{
+//    for ( int t = 0; t < NM[1]; t++)
+//    {
+//        dp[s, t] = -1;
+//    }
+//}
+
+//dp[0, 0] = 0;
+
+//for ( int i = 0; i < NM[0] -1; i++ )
+//{
+//    for( int j = 0; j < NM[1]; j++)
+//    {
+//        if (dp[i+1, j] < dp[i,j])
+//        {
+//            dp[i+1, j] = dp[i, j];
+//        }
+//        if( j + A[i] < NM[1] )
+//        {
+//            dp[i + 1, j + A[i]] = Math.Max(dp[i + 1, j + A[i]], dp[i, j] + B[i]);
+//        }
+
+//    }
+//}
+
+//Console.WriteLine(dp[NM[0]-1, NM[1]-1]);
+//Console.ReadLine();
+
+//int[] NM = Console.ReadLine().Split(" ").Select(int.Parse).ToArray();
+//int[] W = Console.ReadLine().Split(" ").Select(int.Parse).ToArray();
+//int[] V = Console.ReadLine().Split(" ").Select(int.Parse).ToArray();
+
+//int[,] dp = new int[NM[0], NM[1]];
+
+//for (int s = 0; s < NM[0]; s++)
+//{
+//    for (int t = 0; t < NM[1]; t++)
+//    {
+//        dp[s, t] = -1;
+//    }
+//}
+
+//dp[0,0] = 0;
+
+////for (int i = 0; i <= N; i++)
+////{
+////    for (int j = 0; j <= M; j++)
+////    {
+////        if (dp[i, j] < 0) continue;
+////        //if (i + 1 <= N - 1) {
+////        if (i + 1 <= N)
+////        {
+////            dp[i + 1, j] = Math.Max(dp[i + 1, j], dp[i, j]);
+////            if (j + Weis[i] <= M)
+////            {
+////                //もともと存在している値と比べる。
+////                dp[i + 1, j + Weis[i]] = Math.Max(dp[i + 1, j + Weis[i]], dp[i, j] + Vals[i]);
+////            }
+////        }
+////    }
+//}
+
+/////dynamic programming
+
+//int[] NM = Console.ReadLine().Split(" ").Select(int.Parse).ToArray();
+//int[] Weights = Console.ReadLine().Split(" ").Select(int.Parse).ToArray();
+//int[] Values = Console.ReadLine().Split(" ").Select(int.Parse).ToArray();
+
+//int[,] dp = new int[NM[0] + 1, NM[1] + 1];
+
+//for (int i = 0; i < NM[0] + 1; i++)
+//{
+//    for( int j = 0; j < NM[1]; j++)
+//    {
+//        dp[i, j] = -1;
+//    }
+//}
+
+//dp[0, 0] = 0;
+
+//for ( int s = 0; s < NM[0]; s++)
+//{
+//    for( int t = 0; t <= NM[1]; t++)
+//    {
+//        if (dp[s, t] == -1) continue;
+//        dp[s + 1, t] = Math.Max(dp[s, t], dp[s+1,t]);
+//        if (t + Weights[s] <= NM[1])
+//        {
+//            //if (dp[s + 1, t + Weights[s]] == -1) { dp[s + 1, t + Weights[s]] = 0; }
+//            dp[s + 1, t + Weights[s]] = Math.Max(dp[s+1, t + Weights[s]], dp[ s, t ] + Values[s]);
+//        }
+//    }
+//}
+
+//for (int i = 0; i < NM[0] + 1; i++)
+//{
+//    for (int j = 0; j < NM[1]; j++)
+//    {
+//        Console.Write(dp[i, j]);
+//        Console.Write(" ");
+//    }
+
+//    Console.WriteLine();
+//}
+
+//if (dp[NM[0], NM[1]] == -1)
+//{
+//    Console.Write(0);
+//}
+//else
+//{
+//    Console.WriteLine(dp[NM[0], NM[1]]);
+//}
+
+//Console.ReadLine();
+
+//nums = [1, 2, 3]
+
+int[] inputs = new int[3]
 {
-    for ( int t = 0; t < NM[1]; t++)
-    {
-        dp[s, t] = -1;
-    }
+    1,2,3
+};
+
+Array.Sort(inputs);
+foreach( int s in inputs)
+{
+    Console.Write(s);
+    
+}
+Console.Write(" ");
+List<int> inputss = new List<int>();
+inputss.AddRange(inputs);
+
+inputss.Sort((a, b) => b - a);
+foreach (int t in inputss)
+{
+    Console.WriteLine(t);
+    Console.Write(" ");
 }
 
-dp[0, 0] = 0;
-
-for ( int i = 0; i < NM[0] -1; i++ )
-{
-    for( int j = 0; j < NM[1]; j++)
-    {
-        if (dp[i+1, j] < dp[i,j])
-        {
-            dp[i+1, j] = dp[i, j];
-        }
-        if( j + A[i] < NM[1] )
-        {
-            dp[i + 1, j + A[i]] = Math.Max(dp[i + 1, j + A[i]], dp[i, j] + B[i]);
-        }
-        
-    }
-}
-
-Console.WriteLine(dp[NM[0]-1, NM[1]-1]);
 Console.ReadLine();
