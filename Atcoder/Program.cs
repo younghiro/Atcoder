@@ -867,47 +867,415 @@ using static System.Net.Mime.MediaTypeNames;
 //    }
 //}
 
-Solution solution = new Solution();
-Console.WriteLine(solution.IsValid("(("));
+//Solution solution = new Solution();
+//Console.WriteLine(solution.IsValid("(("));
 
-public class Solution
+//public class Solution
+//{
+//    public bool IsValid(string s)
+//    {
+//        Stack<char> stack = new Stack<char>();
+//        List<char> opnings = new List<char>
+//        {
+//            '(','{','['
+//        };
+
+//        //'(', ')', '{', '}', '[' and ']',
+
+//        var map = new Dictionary<char, char>
+//        {
+//            {'(',')'},
+//            {'{', '}'},
+//            {'[', ']'}
+//        };
+
+//        foreach(char t in s)
+//        {
+//            if (opnings.Contains(t))
+//            {
+//                stack.Push(t);
+//            }
+//            else
+//            {
+//                if (stack.Count == 0) return false;
+//                char judge = stack.Pop();
+//                if( t != map[judge])
+//                {
+//                    return false;
+//                }
+//            }
+//        }
+
+//        if (stack.Count > 0) { return false; }else {
+//            return true;
+//            }
+//                }
+//}
+
+//Solution solution = new Solution();
+//Console.WriteLine(solution.ClimbStairs(4));
+
+//public class Solution
+//{
+//    public int ClimbStairs(int n)
+//    {
+//        int[] dp = new int[n + 1];
+//        dp[0] = 1;
+//        dp[1] = 1;
+
+//        if (n == 1) return 1;
+//        for( int s = 2; s <= n; s++)
+//        {
+//            dp[s] = dp[s - 1] + dp[s - 2];
+//            Console.WriteLine(dp[s]);
+//        }
+//        return dp[n];
+//    }
+//}
+
+
+//'(', ')', '{', '}', '[' and ']'
+
+//Solution solution = new Solution();
+//Console.WriteLine(solution.IsValid("()"));
+
+//public class Solution
+//{
+//    public bool IsValid(string s)
+//    {
+//        Stack<char> input = new Stack<char>();
+//        List<char> openings = new List<char>
+//        {
+//            '(','{','['
+//        };
+
+//        Dictionary<char, char> map = new Dictionary<char, char>
+//        {
+//            {'(', ')'},
+//            {'{', '}'},
+//            {'[', ']'}
+//        };
+
+//        foreach( char a in s)
+//        {
+//            if( openings.Contains(a) )
+//            {
+//                input.Push(a);
+//            }else 
+//            {
+//                if (input.Count == 0) return false;
+//                char judge = input.Pop();
+//                if( a != map[judge])  return false;
+
+
+//            }
+//        }
+//            //foreach (char t in s)
+//            //        {
+//            //            if (opnings.Contains(t))
+//            //            {
+//            //                stack.Push(t);
+//            //            }
+//            //            else
+//            //            {
+//            //                if (stack.Count == 0) return false;
+//            //                char judge = stack.Pop();
+//            //                if( t != map[judge])
+//            //                {
+//            //                    return false;
+//            //                }
+//            //            }
+//            //        }
+
+//            //        if (stack.Count > 0) { return false; }else {
+//            //            return true;
+//            return true;
+//    }
+//}
+
+//var List = new List<List<int>>();
+//List.Add(new List<int>());
+//int N = int.Parse(Console.ReadLine());
+//for (int s = 0; s < N; s++)
+//{
+//    int[] input = Console.ReadLine().Split(" ").Select(int.Parse).ToArray();
+//    if (input[0] == 1)
+//    {
+//        List[s][0] = input[1];
+//        List[s][1] = input[2];
+
+//        for (int q = 0; q < List.Count; q++)
+//        {
+//            for (int p = 0; p < List.Count; p++)
+//            {
+//                if (List[q][0] < List[p][0] && List[q][1] < List[p][1])
+//                {
+//                    List[q][0] = 0;
+//                }
+//            }
+//        }
+//    }
+
+//    if (input[0] == 2)
+//    {
+//        int answer = 0;
+//        List[s].Add(0);
+//        List[s].Add(0);
+//        foreach (var a in List)
+//        {
+//            if (a[0] != 0)
+//            {
+//                answer++;
+//            }
+//        }
+
+//        Console.WriteLine(answer);
+//    }
+//}
+
+//int[] NM = Console.ReadLine().Split(" ").Select(int.Parse).ToArray();
+//int[] inputs = Console.ReadLine().Split(" ").Select(int.Parse).ToArray();
+
+//bool[,] dp = new bool[NM[0], NM[1]];
+//for( int p = 0; p < NM[0]; p++)
+//{
+//    for( int q = 0; q < NM[1]; q++)
+//    {
+//        dp[p,q] = false;
+//    }
+//}
+
+//dp[0, 0] = false;
+
+//for( int s = 0; s < NM.Length; s++)
+//{
+
+//    int judge = 0;
+//    judge = judge + inputs[s];
+//    if (judge < NM[1])
+//    {
+//        dp[s+1, judge] = true;
+//    }
+
+//    for ( int t = 0; t < NM[1]; t++)
+//    {
+//        if (dp[s,t] == true && s+1 < NM[0])
+//        {
+//            dp[s + 1, t] = true;
+//        }
+//    }
+//}
+
+//for( int i = 0; i < NM[0]-1; i++)
+//{
+//    for( int j = 0; j < NM[1]; j++)
+//    {
+//        if (!dp[i, j]) continue;
+//        dp[i + 1, j] = true;
+//        if (j + inputs[i] < NM[1]) dp[i + 1, j + inputs[i]] = true;
+//    }
+//}
+////for (int i = 0; i < NM[0] - 1; i++)
+////{
+////    for (int j = 0; j < NM[1]; j++)
+////    {
+////        if (!dp[i, j]) continue;
+////        dp[i + 1, j] = true;
+////        if (j + A[i] < NM[1]) dp[i + 1, j + A[i]] = true;
+////    }
+////}
+
+//int result = 0;
+//for( int a = 0; a < NM[1]; a++)
+//{
+//    if (dp[NM[0]-1,a] == true)
+//    {
+//        result++;
+//    }
+//}
+
+//Console.WriteLine(result);
+
+
+
+//for( int s = NM[0]; s > 0; s--)
+//{
+//    dp[]
+//}
+
+//3 4
+//1 2 3
+//int[] NM = Console.ReadLine().Split(" ").Select(int.Parse).ToArray();
+//int[] inputs = Console.ReadLine().Split(" ").Select(int.Parse).ToArray();
+
+//bool[,] dp = new bool[NM[0]+1, NM[1]+1];
+//for( int i = 0; i < NM[0]; i++)
+//{
+//    for ( int j = 0; j < NM[1] ; j++)
+//    {
+//        if(dp[i, j]) dp[i+1, j] = true;
+//        if(j + inputs[i] <= NM[1])
+//        {
+//            dp[i + 1, j + inputs[i]] = true;
+//        }
+//    }
+//}
+
+//int result = 0;
+//for (int a = 0; a <= NM[0]; a++)
+//{
+//    if (dp[a, NM[1]] == true)
+//    {
+//        result++;
+//    }
+//}
+
+//Console.WriteLine(result);
+//int[] NM= Console.ReadLine().Split(" ").Select(int.Parse).ToArray();
+//int[] A = Console.ReadLine().Split(" ").Select(int.Parse).ToArray();
+//int[] B = Console.ReadLine().Split(" ").Select(int.Parse).ToArray();
+
+//int[,] dp = new int[NM[0], NM[1]];
+
+//for( int s = 0; s < NM[0]; s++)
+//{
+//    for ( int t = 0; t < NM[1]; t++)
+//    {
+//        dp[s, t] = -1;
+//    }
+//}
+
+//dp[0, 0] = 0;
+
+//for ( int i = 0; i < NM[0] -1; i++ )
+//{
+//    for( int j = 0; j < NM[1]; j++)
+//    {
+//        if (dp[i+1, j] < dp[i,j])
+//        {
+//            dp[i+1, j] = dp[i, j];
+//        }
+//        if( j + A[i] < NM[1] )
+//        {
+//            dp[i + 1, j + A[i]] = Math.Max(dp[i + 1, j + A[i]], dp[i, j] + B[i]);
+//        }
+
+//    }
+//}
+
+//Console.WriteLine(dp[NM[0]-1, NM[1]-1]);
+//Console.ReadLine();
+
+//int[] NM = Console.ReadLine().Split(" ").Select(int.Parse).ToArray();
+//int[] W = Console.ReadLine().Split(" ").Select(int.Parse).ToArray();
+//int[] V = Console.ReadLine().Split(" ").Select(int.Parse).ToArray();
+
+//int[,] dp = new int[NM[0], NM[1]];
+
+//for (int s = 0; s < NM[0]; s++)
+//{
+//    for (int t = 0; t < NM[1]; t++)
+//    {
+//        dp[s, t] = -1;
+//    }
+//}
+
+//dp[0,0] = 0;
+
+////for (int i = 0; i <= N; i++)
+////{
+////    for (int j = 0; j <= M; j++)
+////    {
+////        if (dp[i, j] < 0) continue;
+////        //if (i + 1 <= N - 1) {
+////        if (i + 1 <= N)
+////        {
+////            dp[i + 1, j] = Math.Max(dp[i + 1, j], dp[i, j]);
+////            if (j + Weis[i] <= M)
+////            {
+////                //もともと存在している値と比べる。
+////                dp[i + 1, j + Weis[i]] = Math.Max(dp[i + 1, j + Weis[i]], dp[i, j] + Vals[i]);
+////            }
+////        }
+////    }
+//}
+
+/////dynamic programming
+
+//int[] NM = Console.ReadLine().Split(" ").Select(int.Parse).ToArray();
+//int[] Weights = Console.ReadLine().Split(" ").Select(int.Parse).ToArray();
+//int[] Values = Console.ReadLine().Split(" ").Select(int.Parse).ToArray();
+
+//int[,] dp = new int[NM[0] + 1, NM[1] + 1];
+
+//for (int i = 0; i < NM[0] + 1; i++)
+//{
+//    for( int j = 0; j < NM[1]; j++)
+//    {
+//        dp[i, j] = -1;
+//    }
+//}
+
+//dp[0, 0] = 0;
+
+//for ( int s = 0; s < NM[0]; s++)
+//{
+//    for( int t = 0; t <= NM[1]; t++)
+//    {
+//        if (dp[s, t] == -1) continue;
+//        dp[s + 1, t] = Math.Max(dp[s, t], dp[s+1,t]);
+//        if (t + Weights[s] <= NM[1])
+//        {
+//            //if (dp[s + 1, t + Weights[s]] == -1) { dp[s + 1, t + Weights[s]] = 0; }
+//            dp[s + 1, t + Weights[s]] = Math.Max(dp[s+1, t + Weights[s]], dp[ s, t ] + Values[s]);
+//        }
+//    }
+//}
+
+//for (int i = 0; i < NM[0] + 1; i++)
+//{
+//    for (int j = 0; j < NM[1]; j++)
+//    {
+//        Console.Write(dp[i, j]);
+//        Console.Write(" ");
+//    }
+
+//    Console.WriteLine();
+//}
+
+//if (dp[NM[0], NM[1]] == -1)
+//{
+//    Console.Write(0);
+//}
+//else
+//{
+//    Console.WriteLine(dp[NM[0], NM[1]]);
+//}
+
+//Console.ReadLine();
+
+//nums = [1, 2, 3]
+
+int[] inputs = new int[3]
 {
-    public bool IsValid(string s)
-    {
-        Stack<char> stack = new Stack<char>();
-        List<char> opnings = new List<char>
-        {
-            '(','{','['
-        };
+    1,2,3
+};
 
-        //'(', ')', '{', '}', '[' and ']',
-
-        var map = new Dictionary<char, char>
-        {
-            {'(',')'},
-            {'{', '}'},
-            {'[', ']'}
-        };
-
-        foreach(char t in s)
-        {
-            if (opnings.Contains(t))
-            {
-                stack.Push(t);
-            }
-            else
-            {
-                if (stack.Count == 0) return false;
-                char judge = stack.Pop();
-                if( t != map[judge])
-                {
-                    return false;
-                }
-            }
-        }
-
-        if (stack.Count > 0) { return false; }else {
-            return true;
-            }
-                }
+Array.Sort(inputs);
+foreach( int s in inputs)
+{
+    Console.Write(s);
+    
 }
+Console.Write(" ");
+List<int> inputss = new List<int>();
+inputss.AddRange(inputs);
+
+inputss.Sort((a, b) => b - a);
+foreach (int t in inputss)
+{
+    Console.WriteLine(t);
+    Console.Write(" ");
+}
+
+Console.ReadLine();
